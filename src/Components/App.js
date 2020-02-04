@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import {Header, Footer} from './Layouts'
-import {Login} from './Authentication'
+import { BrowserRouter as Router } from "react-router-dom"
+import Routes from './Routes'
 
 export default class extends Component {
     render() {
         return (
             <Fragment>
-                <Header/>
-                <Login/>
-                <Footer/>
+                {/*<Header/>*/}
+                <Router>
+                    <Routes/>
+                </Router>
+                {/*<Footer/>*/}
             </Fragment>
         )
     }

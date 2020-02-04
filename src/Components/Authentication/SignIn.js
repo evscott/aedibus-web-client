@@ -32,7 +32,9 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default Login => {
+
+export default function SignIn(props) {
+    const { toggleSignUp } = props;
     const classes = useStyles();
 
     return (
@@ -63,7 +65,7 @@ export default Login => {
                         required
                         fullWidth
                         name="password"
-                        label="Password"
+                        label="Password" href="/"
                         type="password"
                         id="password"
                         autoComplete="current-password"
@@ -83,12 +85,12 @@ export default Login => {
                     </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
+                            <Link href="/" variant="body2">
                                 Forgot password?
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link variant="body2" onClick={toggleSignUp}>
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
