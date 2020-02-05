@@ -5,7 +5,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import {accountItems, socialItems, logoutItem} from "./sidebar-items";
+import {socialItems, navigationItems} from "./sidebar-items";
 import Drawer from "@material-ui/core/Drawer";
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
@@ -102,7 +102,7 @@ export default (props) => {
                 </IconButton>
             </div>
             <Divider />
-            <List> {accountItems} </List>
+            <List> {navigationItems} </List>
             <Divider />
             <List>{socialItems}</List>
         </Drawer>

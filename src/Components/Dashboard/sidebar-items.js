@@ -7,6 +7,26 @@ import Settings from '@material-ui/icons/Settings';
 import PeopleIcon from '@material-ui/icons/People';
 import EmojiPeople from '@material-ui/icons/EmojiPeople';
 import Chat from '@material-ui/icons/Chat';
+import Dashboard from '@material-ui/icons/Dashboard';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+
+
+export const navigationItems = (
+    <div>
+        <ListItem button>
+            <ListItemIcon>
+                <Dashboard />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button>
+            <ListItemIcon>
+                <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText primary="Submissions" />
+        </ListItem>
+    </div>
+);
 
 export const accountItems = (
     <div>
