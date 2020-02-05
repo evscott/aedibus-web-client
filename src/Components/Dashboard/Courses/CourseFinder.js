@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import CourseList from "./CourseList";
 
 const styles = theme => ({
     paper: {
@@ -32,12 +34,34 @@ const styles = theme => ({
         marginRight: theme.spacing(1),
     },
     contentWrapper: {
-        margin: '40px 16px',
+        margin: '16px 16px',
     },
 });
 
-function Content(props) {
+const courses = [
+    {
+        id: 0,
+        name: "COMP 2631",
+
+    },
+    {
+        id: 1,
+        name: "COMP 4911",
+
+    },
+    {
+        id: 2,
+        name: "COMP 4721",
+
+    },
+];
+
+function CourseFinder(props) {
     const { classes } = props;
+    const [value, setValue] = React.useState(0);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     return (
         <Paper className={classes.paper}>
@@ -50,7 +74,7 @@ function Content(props) {
                         <Grid item xs>
                             <TextField
                                 fullWidth
-                                placeholder="Search by course name or ID"
+                                placeholder="Search for course"
                                 InputProps={{
                                     disableUnderline: true,
                                     className: classes.searchInput,
@@ -59,7 +83,7 @@ function Content(props) {
                         </Grid>
                         <Grid item>
                             <Button variant="contained" color="primary" className={classes.addUser}>
-                                Create course
+                                Create Course
                             </Button>
                             <Tooltip title="Reload">
                                 <IconButton>
@@ -71,16 +95,14 @@ function Content(props) {
                 </Toolbar>
             </AppBar>
             <div className={classes.contentWrapper}>
-                <Typography color="textSecondary" align="center">
-                    No courses yet
-                </Typography>
+                <CourseList courses={courses}/>
             </div>
         </Paper>
     );
 }
 
-Content.propTypes = {
+CourseFinder.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Content);
+export default withStyles(styles)(CourseFinder);

@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import FolderIcon from '@material-ui/icons/Folder';
+import WebIcon from '@material-ui/icons/Web';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,29 +20,24 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function generate(element) {
-    return [0, 1, 2].map(value =>
-        React.cloneElement(element, {
-            key: value,
-        }),
-    );
-}
-
 export default (props) => {
     const classes = useStyles();
+    const { courses } = props;
 
     return (
         <Grid item>
             <div className={classes.demo}>
                 <List>
-                    {generate(
-                        <ListItem button>
-                            <ListItemIcon>
-                                <FolderIcon />
+                    {courses.map(({ id, name }) => (
+                        <ListItem key={id} button>
+                            <ListItemIcon className={classes.itemIcon}>
+                                <WebIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="Course 1"/>
-                        </ListItem>,
-                    )}
+                            <ListItemText>
+                                {name}
+                            </ListItemText>
+                        </ListItem>
+                    ))}
                 </List>
             </div>
         </Grid>

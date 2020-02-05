@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import LandingPage from "./Authentication/LandingPage";
+import LandingPage from "./LandingPage/LandingPage";
 import Dashboard from "./Dashboard/Dashboard";
 
 // const AuthenticatedRoute = ({ component: Component, ...rest}) => {

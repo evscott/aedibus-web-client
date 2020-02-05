@@ -6,9 +6,10 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Sidebar from './Sidebar/Sidebar';
-import Content from './Content';
+import CourseFinder from './Courses/CourseFinder';
 import Header from './Header/Header';
 import Grid from "@material-ui/core/Grid";
+import MessageFinder from "./Messenger/MessageFinder";
 
 function Copyright() {
     return (
@@ -186,9 +187,12 @@ function Dashboard(props) {
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle} />
                     <main className={classes.main}>
-                        <Grid container>
-                            <Grid item lg={5} md={12} xs={12}>
-                                <Content />
+                        <Grid container spacing={2}>
+                            <Grid item lg={6} md={12} xs={12}>
+                                <CourseFinder />
+                            </Grid>
+                            <Grid item lg={6} md={12} xs={12}>
+                                <MessageFinder />
                             </Grid>
                         </Grid>
                     </main>
