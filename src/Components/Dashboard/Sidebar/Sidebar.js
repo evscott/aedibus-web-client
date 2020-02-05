@@ -10,7 +10,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PeopleIcon from '@material-ui/icons/People';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
-import AccountBalance from '@material-ui/icons/AccountBalance';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 
 
@@ -72,14 +71,13 @@ const styles = theme => ({
     },
 });
 
-function Navigator(props) {
+function Sidebar(props) {
     const { classes, ...other } = props;
 
     return (
         <Drawer variant="permanent" {...other}>
             <List disablePadding>
                 <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-                    <AccountBalance/>
                     Aedibus
                 </ListItem>
                 {categories.map(({ id, children }) => (
@@ -116,8 +114,8 @@ function Navigator(props) {
     );
 }
 
-Navigator.propTypes = {
+Sidebar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Navigator);
+export default withStyles(styles)(Sidebar);

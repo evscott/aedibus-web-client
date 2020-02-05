@@ -5,9 +5,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import Navigator from './Navigator';
+import Sidebar from './Sidebar/Sidebar';
 import Content from './Content';
-import Header from './Header';
+import Header from './Header/Header';
 import Grid from "@material-ui/core/Grid";
 
 function Copyright() {
@@ -156,10 +156,6 @@ const styles = {
         padding: theme.spacing(6, 4),
         background: '#eaeff1',
     },
-    footer: {
-        padding: theme.spacing(2),
-        background: '#eaeff1',
-    },
 };
 
 function Dashboard(props) {
@@ -176,7 +172,7 @@ function Dashboard(props) {
                 <CssBaseline />
                 <nav className={classes.drawer}>
                     <Hidden smUp implementation="js">
-                        <Navigator
+                        <Sidebar
                             PaperProps={{ style: { width: drawerWidth } }}
                             variant="temporary"
                             open={mobileOpen}
@@ -184,21 +180,19 @@ function Dashboard(props) {
                         />
                     </Hidden>
                     <Hidden xsDown implementation="css">
-                        <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+                        <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle} />
                     <main className={classes.main}>
-                        <Grid containe>
+                        <Grid container>
                             <Grid item lg={5} md={12} xs={12}>
                                 <Content />
                             </Grid>
                         </Grid>
                     </main>
-                    <footer className={classes.footer}>
-                        <Copyright />
-                    </footer>
+                    <Copyright/>
                 </div>
             </div>
         </ThemeProvider>
