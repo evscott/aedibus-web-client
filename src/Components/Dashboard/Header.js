@@ -63,6 +63,9 @@ function Header(props) {
                                 </IconButton>
                             </Tooltip>
                         </Grid>
+                        <Grid item >
+                            Eliot Scott
+                        </Grid>
                         <Grid item>
                             <IconButton color="inherit" className={classes.iconButtonAvatar} onClick={handleClick}>
                                 <ArrowDropDownIcon />
