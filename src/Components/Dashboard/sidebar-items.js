@@ -2,36 +2,30 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import Web from '@material-ui/icons/Web';
+import AccountBox from '@material-ui/icons/AccountBox';
+import Settings from '@material-ui/icons/Settings';
 import PeopleIcon from '@material-ui/icons/People';
-import WebAsset from '@material-ui/icons/WebAsset';
+import EmojiPeople from '@material-ui/icons/EmojiPeople';
 import Chat from '@material-ui/icons/Chat';
 
-export const mainListItems = (
+export const accountItems = (
     <div>
         <ListItem button>
             <ListItemIcon>
-                <DashboardIcon />
+                <AccountBox />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Account" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <Web />
+                <Settings />
             </ListItemIcon>
-            <ListItemText primary="Courses"/>
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <WebAsset />
-            </ListItemIcon>
-            <ListItemText primary="Assignments"/>
+            <ListItemText primary="Settings" />
         </ListItem>
     </div>
 );
 
-export const secondaryListItems = (
+export const socialItems = (
     <div>
         <ListItem button>
             <ListItemIcon>
@@ -44,6 +38,17 @@ export const secondaryListItems = (
                 <Chat />
             </ListItemIcon>
             <ListItemText primary="Messages" />
+        </ListItem>
+    </div>
+);
+
+export const logoutItem = (
+    <div>
+        <ListItem button>
+            <ListItemIcon>
+                <EmojiPeople />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
         </ListItem>
     </div>
 )
