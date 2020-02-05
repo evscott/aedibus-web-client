@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./Authentication/LandingPage";
-import Dashboard from "./Dashboard/Dashboard";
+import Paperbase from "./Dashboard/Dashboard";
 
 // const AuthenticatedRoute = ({ component: Component, ...rest}) => {
 //     return <Route
@@ -13,6 +13,6 @@ import Dashboard from "./Dashboard/Dashboard";
 export default () => (
     <Switch>
         <Route exact path={"/"} component={LandingPage}/>
-        <Route exact path={"/home"} component={Dashboard}/>
+        <Route exact path={"/home"} component={Paperbase}/>
     </Switch>
 );

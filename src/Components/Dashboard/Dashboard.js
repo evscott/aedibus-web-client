@@ -1,53 +1,212 @@
-import React, {Fragment} from 'react';
-import TopBar from './TopBar'
-import SideBar from "./SideBar";
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import CourseList from "../Courses/CourseList";
-import Paper from '@material-ui/core/Paper'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Hidden from '@material-ui/core/Hidden';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import Navigator from './Navigator';
+import Content from './Content';
+import Header from './Header';
+import Grid from "@material-ui/core/Grid";
 
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit">
+                Aedibus
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
 
-const useStyles = makeStyles(theme => ({
+let theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#63ccff',
+            main: '#009be5',
+            dark: '#006db3',
+        },
+    },
+    typography: {
+        h5: {
+            fontWeight: 500,
+            fontSize: 26,
+            letterSpacing: 0.5,
+        },
+    },
+    shape: {
+        borderRadius: 8,
+    },
+    props: {
+        MuiTab: {
+            disableRipple: true,
+        },
+    },
+    mixins: {
+        toolbar: {
+            minHeight: 48,
+        },
+    },
+});
+
+theme = {
+    ...theme,
+    overrides: {
+        MuiDrawer: {
+            paper: {
+                backgroundColor: '#18202c',
+            },
+        },
+        MuiButton: {
+            label: {
+                textTransform: 'none',
+            },
+            contained: {
+                boxShadow: 'none',
+                '&:active': {
+                    boxShadow: 'none',
+                },
+            },
+        },
+        MuiTabs: {
+            root: {
+                marginLeft: theme.spacing(1),
+            },
+            indicator: {
+                height: 3,
+                borderTopLeftRadius: 3,
+                borderTopRightRadius: 3,
+                backgroundColor: theme.palette.common.white,
+            },
+        },
+        MuiTab: {
+            root: {
+                textTransform: 'none',
+                margin: '0 16px',
+                minWidth: 0,
+                padding: 0,
+                [theme.breakpoints.up('md')]: {
+                    padding: 0,
+                    minWidth: 0,
+                },
+            },
+        },
+        MuiIconButton: {
+            root: {
+                padding: theme.spacing(1),
+            },
+        },
+        MuiTooltip: {
+            tooltip: {
+                borderRadius: 4,
+            },
+        },
+        MuiDivider: {
+            root: {
+                backgroundColor: '#404854',
+            },
+        },
+        MuiListItemText: {
+            primary: {
+                fontWeight: theme.typography.fontWeightMedium,
+            },
+        },
+        MuiListItemIcon: {
+            root: {
+                color: 'inherit',
+                marginRight: 0,
+                '& svg': {
+                    fontSize: 20,
+                },
+            },
+        },
+        MuiAvatar: {
+            root: {
+                width: 32,
+                height: 32,
+            },
+        },
+    },
+};
+
+const drawerWidth = 256;
+
+const styles = {
     root: {
         display: 'flex',
+        minHeight: '100vh',
     },
-    appBarSpacer: theme.mixins.toolbar,
-    Paper: {
-        padding: 10,
-        marginTop: 10,
-        marginBottom: 10,
-        height: 500
-    }
-}));
+    drawer: {
+        [theme.breakpoints.up('sm')]: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+    },
+    app: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    main: {
+        flex: 1,
+        padding: theme.spacing(6, 4),
+        background: '#eaeff1',
+    },
+    footer: {
+        padding: theme.spacing(2),
+        background: '#eaeff1',
+    },
+};
 
-export default () => {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+function Dashboard(props) {
+    const { classes } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
     };
 
     return (
-        <Fragment className={classes.root}>
-            <TopBar handleDrawerOpen={handleDrawerOpen} open={open}/>
-            <main>
-                <div className={classes.appBarSpacer} />
-                <Grid container>
-                    <Grid item lg={1} md={2}>
-                        <SideBar handleDrawerClose={handleDrawerClose} open={open}/>
-                    </Grid>
-                    <Grid item lg={4} md={6} xs={12}>
-                        <Paper className={classes.Paper}>
-                            <CourseList/>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </main>
-        </Fragment>
+        <ThemeProvider theme={theme}>
+            <div className={classes.root}>
+                <CssBaseline />
+                <nav className={classes.drawer}>
+                    <Hidden smUp implementation="js">
+                        <Navigator
+                            PaperProps={{ style: { width: drawerWidth } }}
+                            variant="temporary"
+                            open={mobileOpen}
+                            onClose={handleDrawerToggle}
+                        />
+                    </Hidden>
+                    <Hidden xsDown implementation="css">
+                        <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+                    </Hidden>
+                </nav>
+                <div className={classes.app}>
+                    <Header onDrawerToggle={handleDrawerToggle} />
+                    <main className={classes.main}>
+                        <Grid containe>
+                            <Grid item lg={5} md={12} xs={12}>
+                                <Content />
+                            </Grid>
+                        </Grid>
+                    </main>
+                    <footer className={classes.footer}>
+                        <Copyright />
+                    </footer>
+                </div>
+            </div>
+        </ThemeProvider>
     );
 }
+
+Dashboard.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Dashboard);
