@@ -5,7 +5,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SettingsIcon from "@material-ui/icons/Settings";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
-import Grid from "@material-ui/core/Grid";
 import React from "react";
 
 const styles = theme => ({

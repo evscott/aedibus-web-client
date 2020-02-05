@@ -171,21 +171,15 @@ function Dashboard(props) {
         <ThemeProvider theme={theme}>
             <div className={classes.root}>
                 <CssBaseline />
+                {/* Sidebar Navigation */}
                 <nav className={classes.drawer}>
-                    <Hidden smUp implementation="js">
-                        <Sidebar
-                            PaperProps={{ style: { width: drawerWidth } }}
-                            variant="temporary"
-                            open={mobileOpen}
-                            onClose={handleDrawerToggle}
-                        />
-                    </Hidden>
                     <Hidden xsDown implementation="css">
                         <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle} />
+                    {/* Dashboard Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={12} xs={12}>
