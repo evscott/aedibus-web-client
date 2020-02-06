@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import PeopleIcon from '@material-ui/icons/People';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
-import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
-
+import React from 'react'
+import PropTypes from 'prop-types'
+import clsx from 'clsx'
+import { withStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import PeopleIcon from '@material-ui/icons/People'
+import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 
 const categories = [
     {
@@ -28,7 +27,7 @@ const categories = [
             { id: 'Students', icon: <PeopleIcon /> },
         ],
     },
-];
+]
 
 const styles = theme => ({
     categoryHeader: {
@@ -69,15 +68,21 @@ const styles = theme => ({
     divider: {
         marginTop: theme.spacing(2),
     },
-});
+})
 
 function Sidebar(props) {
-    const { classes, ...other } = props;
+    const { classes, ...other } = props
 
     return (
         <Drawer variant="permanent" {...other}>
             <List disablePadding>
-                <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
+                <ListItem
+                    className={clsx(
+                        classes.firebase,
+                        classes.item,
+                        classes.itemCategory
+                    )}
+                >
                     Aedibus
                 </ListItem>
                 {categories.map(({ id, children }) => (
@@ -95,9 +100,14 @@ function Sidebar(props) {
                             <ListItem
                                 key={childId}
                                 button
-                                className={clsx(classes.item, active && classes.itemActiveItem)}
+                                className={clsx(
+                                    classes.item,
+                                    active && classes.itemActiveItem
+                                )}
                             >
-                                <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                                <ListItemIcon className={classes.itemIcon}>
+                                    {icon}
+                                </ListItemIcon>
                                 <ListItemText
                                     classes={{
                                         primary: classes.itemPrimary,
@@ -111,11 +121,11 @@ function Sidebar(props) {
                 ))}
             </List>
         </Drawer>
-    );
+    )
 }
 
 Sidebar.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(Sidebar);
+export default withStyles(styles)(Sidebar)

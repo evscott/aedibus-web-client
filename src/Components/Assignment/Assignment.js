@@ -1,15 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
-import Sidebar from '../Layouts/Sidebar';
-import Header from '../Layouts/Header/Header';
-import Grid from "@material-ui/core/Grid";
-import {Footer} from "../Layouts";
-import Paper from "@material-ui/core/Paper";
-import Editor from "../Editor/Editor";
-
+import React from 'react'
+import PropTypes from 'prop-types'
+import {
+    createMuiTheme,
+    ThemeProvider,
+    withStyles,
+} from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Hidden from '@material-ui/core/Hidden'
+import Sidebar from '../Layouts/Sidebar'
+import Header from '../Layouts/Header/Header'
+import Grid from '@material-ui/core/Grid'
+import { Footer } from '../Layouts'
+import Paper from '@material-ui/core/Paper'
+import Editor from '../Editor/Editor'
 
 let theme = createMuiTheme({
     palette: {
@@ -39,7 +42,7 @@ let theme = createMuiTheme({
             minHeight: 48,
         },
     },
-});
+})
 
 theme = {
     ...theme,
@@ -119,9 +122,9 @@ theme = {
             },
         },
     },
-};
+}
 
-const drawerWidth = 256;
+const drawerWidth = 256
 
 const styles = {
     root: {
@@ -148,15 +151,15 @@ const styles = {
         height: 800,
         padding: '10px',
     },
-};
+}
 
 function Assignment(props) {
-    const { classes } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { classes } = props
+    const [mobileOpen, setMobileOpen] = React.useState(false)
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+        setMobileOpen(!mobileOpen)
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -165,7 +168,9 @@ function Assignment(props) {
                 {/* Sidebar Navigation */}
                 <nav className={classes.drawer}>
                     <Hidden xsDown implementation="css">
-                        <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
+                        <Sidebar
+                            PaperProps={{ style: { width: drawerWidth } }}
+                        />
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
@@ -176,20 +181,20 @@ function Assignment(props) {
                             {/* Code Editor */}
                             <Grid item lg={6} md={12} xs={12}>
                                 <Paper className={classes.CodeMirror}>
-                                     <Editor/>
+                                    <Editor />
                                 </Paper>
                             </Grid>
                         </Grid>
                     </main>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         </ThemeProvider>
-    );
+    )
 }
 
 Assignment.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(Assignment);
+export default withStyles(styles)(Assignment)

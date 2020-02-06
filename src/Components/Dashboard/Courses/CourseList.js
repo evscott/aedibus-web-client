@@ -1,11 +1,11 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import WebIcon from '@material-ui/icons/Web';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import WebIcon from '@material-ui/icons/Web'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -18,11 +18,11 @@ const useStyles = makeStyles(theme => ({
     title: {
         margin: theme.spacing(4, 0, 2),
     },
-}));
+}))
 
-export default (props) => {
-    const classes = useStyles();
-    const { courses, onCourseSelect } = props;
+export default props => {
+    const classes = useStyles()
+    const { courses, onCourseSelect } = props
 
     return (
         <Grid item>
@@ -31,15 +31,13 @@ export default (props) => {
                     {courses.map(({ id, name }) => (
                         <ListItem key={id} button onClick={onCourseSelect}>
                             <ListItemIcon className={classes.itemIcon}>
-                                <WebIcon/>
+                                <WebIcon />
                             </ListItemIcon>
-                            <ListItemText>
-                                {name}
-                            </ListItemText>
+                            <ListItemText>{name}</ListItemText>
                         </ListItem>
                     ))}
                 </List>
             </div>
         </Grid>
-    );
+    )
 }

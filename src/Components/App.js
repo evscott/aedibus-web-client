@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router } from "react-router-dom"
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes'
 
 export default class extends Component {
@@ -8,7 +8,7 @@ export default class extends Component {
             <Fragment>
                 {/*<Header/>*/}
                 <Router>
-                    <Routes/>
+                    <Routes />
                 </Router>
                 {/*<Footer/>*/}
             </Fragment>

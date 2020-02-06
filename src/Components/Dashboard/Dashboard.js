@@ -1,16 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import Sidebar from '../Layouts/Sidebar';
-import Header from '../Layouts/Header/Header';
-import Grid from "@material-ui/core/Grid";
-import MessageFinder from "./Messenger/MessageFinder";
-import WorkNav from "./WorkNav/WorkNav";
-import {Footer} from "../Layouts";
+import React from 'react'
+import PropTypes from 'prop-types'
+import {
+    createMuiTheme,
+    ThemeProvider,
+    withStyles,
+} from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Hidden from '@material-ui/core/Hidden'
+import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
+import Sidebar from '../Layouts/Sidebar'
+import Header from '../Layouts/Header/Header'
+import Grid from '@material-ui/core/Grid'
+import MessageFinder from './Messenger/MessageFinder'
+import WorkNav from './WorkNav/WorkNav'
+import { Footer } from '../Layouts'
 
 let theme = createMuiTheme({
     palette: {
@@ -40,7 +44,7 @@ let theme = createMuiTheme({
             minHeight: 48,
         },
     },
-});
+})
 
 theme = {
     ...theme,
@@ -120,9 +124,9 @@ theme = {
             },
         },
     },
-};
+}
 
-const drawerWidth = 256;
+const drawerWidth = 256
 
 const styles = {
     root: {
@@ -145,15 +149,15 @@ const styles = {
         padding: theme.spacing(6, 4),
         background: '#eaeff1',
     },
-};
+}
 
 function Dashboard(props) {
-    const { classes } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { classes } = props
+    const [mobileOpen, setMobileOpen] = React.useState(false)
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+        setMobileOpen(!mobileOpen)
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -162,7 +166,9 @@ function Dashboard(props) {
                 {/* Sidebar Navigation */}
                 <nav className={classes.drawer}>
                     <Hidden xsDown implementation="css">
-                        <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
+                        <Sidebar
+                            PaperProps={{ style: { width: drawerWidth } }}
+                        />
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
@@ -171,22 +177,22 @@ function Dashboard(props) {
                     <main className={classes.main}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={12} xs={12}>
-                                <WorkNav/>
+                                <WorkNav />
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
                                 <MessageFinder />
                             </Grid>
                         </Grid>
                     </main>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         </ThemeProvider>
-    );
+    )
 }
 
 Dashboard.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(Dashboard)

@@ -1,7 +1,7 @@
-import IconButton from "@material-ui/core/IconButton";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import Tooltip from "@material-ui/core/Tooltip";
-import React from "react";
+import IconButton from '@material-ui/core/IconButton'
+import NotificationsIcon from '@material-ui/icons/Notifications'
+import Tooltip from '@material-ui/core/Tooltip'
+import React from 'react'
 
 export default props => {
     return (
@@ -10,5 +10,5 @@ export default props => {
                 <NotificationsIcon />
             </IconButton>
         </Tooltip>
-    );
+    )
 }

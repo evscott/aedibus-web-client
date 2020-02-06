@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
-import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import RefreshIcon from '@material-ui/icons/Refresh';
-import AssignmentList from "./AssignmentList";
-import Typography from "@material-ui/core/Typography";
+import React from 'react'
+import PropTypes from 'prop-types'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Tooltip from '@material-ui/core/Tooltip'
+import IconButton from '@material-ui/core/IconButton'
+import { withStyles } from '@material-ui/core/styles'
+import SearchIcon from '@material-ui/icons/Search'
+import RefreshIcon from '@material-ui/icons/Refresh'
+import AssignmentList from './AssignmentList'
+import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
     paper: {
@@ -35,46 +35,49 @@ const styles = theme => ({
     contentWrapper: {
         margin: '16px 16px',
     },
-});
+})
 
 const Assignments = [
     {
         id: 0,
-        name: "Assignment 1",
-
+        name: 'Assignment 1',
     },
     {
         id: 1,
-        name: "Assignment 2",
-
+        name: 'Assignment 2',
     },
     {
         id: 2,
-        name: "Assignment 3",
-
+        name: 'Assignment 3',
     },
     {
         id: 4,
-        name: "Assignment 4",
-
+        name: 'Assignment 4',
     },
     {
         id: 6,
-        name: "Assignment 5",
-
+        name: 'Assignment 5',
     },
-];
+]
 
 function AssignmentFinder(props) {
-    const { classes } = props;
+    const { classes } = props
 
     return (
         <Paper className={classes.paper}>
-            <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+            <AppBar
+                className={classes.searchBar}
+                position="static"
+                color="default"
+                elevation={0}
+            >
                 <Toolbar>
                     <Grid container spacing={2} alignItems="center">
                         <Grid item>
-                            <SearchIcon className={classes.block} color="inherit" />
+                            <SearchIcon
+                                className={classes.block}
+                                color="inherit"
+                            />
                         </Grid>
                         <Grid item xs>
                             <TextField
@@ -87,12 +90,19 @@ function AssignmentFinder(props) {
                             />
                         </Grid>
                         <Grid item>
-                            <Button variant="contained" color="primary" className={classes.addUser}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.addUser}
+                            >
                                 Create Assignment
                             </Button>
                             <Tooltip title="Reload">
                                 <IconButton>
-                                    <RefreshIcon className={classes.block} color="inherit" />
+                                    <RefreshIcon
+                                        className={classes.block}
+                                        color="inherit"
+                                    />
                                 </IconButton>
                             </Tooltip>
                         </Grid>
@@ -100,14 +110,14 @@ function AssignmentFinder(props) {
                 </Toolbar>
             </AppBar>
             <div className={classes.contentWrapper}>
-                <AssignmentList Assignments={Assignments}/>
+                <AssignmentList Assignments={Assignments} />
             </div>
         </Paper>
-    );
+    )
 }
 
 AssignmentFinder.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(AssignmentFinder);
+export default withStyles(styles)(AssignmentFinder)
