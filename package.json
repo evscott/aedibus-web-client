@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "0.9.5",
     "@material-ui/core": "latest",
-    "react-router-dom": "latest"
+    "codemirror": "^5.51.0",
+    "react": "^16.12.0",
+    "react-codemirror2": "^6.0.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "latest",
+    "react-scripts": "0.9.5"
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1"

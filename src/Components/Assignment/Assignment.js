@@ -8,9 +8,13 @@ import Link from '@material-ui/core/Link';
 import Sidebar from '../Layouts/Sidebar';
 import Header from '../Layouts/Header/Header';
 import Grid from "@material-ui/core/Grid";
-import MessageFinder from "./Messenger/MessageFinder";
-import WorkNav from "./WorkNav/WorkNav";
+import MessageFinder from "../Dashboard/Messenger/MessageFinder";
 import {Footer} from "../Layouts";
+import 'codemirror/lib/codemirror.css'
+require('codemirror/mode/javascript/javascript');
+require('codemirror/theme/material.css');
+import {UnControlled as CodeMirror} from 'react-codemirror2';
+import Paper from "@material-ui/core/Paper";
 
 let theme = createMuiTheme({
     palette: {
@@ -145,9 +149,12 @@ const styles = {
         padding: theme.spacing(6, 4),
         background: '#eaeff1',
     },
+    CodeMirror: {
+        height: '800px',
+    },
 };
 
-function Dashboard(props) {
+function Assignment(props) {
     const { classes } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -167,14 +174,23 @@ function Dashboard(props) {
                 </nav>
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle} />
-                    {/* Dashboard Contents */}
+                    {/* Assignment Contents */}
                     <main className={classes.main}>
-                        <Grid container spacing={2}>
+                        <Grid container>
                             <Grid item lg={6} md={12} xs={12}>
-                                <WorkNav/>
-                            </Grid>
-                            <Grid item lg={6} md={12} xs={12}>
-                                <MessageFinder />
+                                <Paper>
+                                    <CodeMirror
+                                        className={classes.CodeMirror}
+                                        value='blah'
+                                        options={{
+                                            mode: 'xml',
+                                            theme: 'material',
+                                            lineNumbers: true
+                                        }}
+                                        onChange={(editor, data, value) => {
+                                        }}
+                                    />
+                                </Paper>
                             </Grid>
                         </Grid>
                     </main>
@@ -185,8 +201,8 @@ function Dashboard(props) {
     );
 }
 
-Dashboard.propTypes = {
+Assignment.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(Assignment);
