@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import Sidebar from '../Layouts/Sidebar';
 import Header from '../Layouts/Header/Header';
 import Grid from "@material-ui/core/Grid";
-import MessageFinder from "../Dashboard/Messenger/MessageFinder";
 import {Footer} from "../Layouts";
-import 'codemirror/lib/codemirror.css'
+import Paper from "@material-ui/core/Paper";
+import {UnControlled as CodeMirror} from 'react-codemirror2';
+import 'codemirror/lib/codemirror.css';
 require('codemirror/mode/javascript/javascript');
 require('codemirror/theme/material.css');
-import {UnControlled as CodeMirror} from 'react-codemirror2';
-import Paper from "@material-ui/core/Paper";
+import "./Assignment.css"
+
 
 let theme = createMuiTheme({
     palette: {
@@ -150,7 +149,7 @@ const styles = {
         background: '#eaeff1',
     },
     CodeMirror: {
-        height: '800px',
+        height: 800,
     },
 };
 
@@ -183,7 +182,7 @@ function Assignment(props) {
                                         className={classes.CodeMirror}
                                         value='blah'
                                         options={{
-                                            mode: 'xml',
+                                            mode: 'javascript',
                                             theme: 'material',
                                             lineNumbers: true
                                         }}
