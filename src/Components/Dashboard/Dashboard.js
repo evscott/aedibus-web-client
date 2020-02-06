@@ -7,8 +7,6 @@ import {
 } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Hidden from '@material-ui/core/Hidden'
-import Typography from '@material-ui/core/Typography'
-import Link from '@material-ui/core/Link'
 import Sidebar from '../Layouts/Sidebar'
 import Header from '../Layouts/Header/Header'
 import Grid from '@material-ui/core/Grid'

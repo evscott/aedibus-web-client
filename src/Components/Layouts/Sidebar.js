@@ -11,20 +11,23 @@ import PeopleIcon from '@material-ui/icons/People'
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
+import { Dashboard } from '@material-ui/icons'
+import { useHistory } from "react-router-dom";
 
-const categories = [
+export const Categories = [
     {
         id: 'Work',
         children: [
-            { id: 'Courses', icon: <DnsRoundedIcon /> },
-            { id: 'Submissions', icon: <AssignmentTurnedInIcon /> },
+            { id: 'Dashboard', icon: <Dashboard/>, to: '/home' },
+            { id: 'Courses', icon: <DnsRoundedIcon />, to: '/home' },
+            { id: 'Submissions', icon: <AssignmentTurnedInIcon />, to: '/home' },
         ],
     },
     {
         id: 'Social',
         children: [
-            { id: 'Messenger', icon: <QuestionAnswerIcon /> },
-            { id: 'Students', icon: <PeopleIcon /> },
+            { id: 'Messenger', icon: <QuestionAnswerIcon />, to: '/home' },
+            { id: 'Students', icon: <PeopleIcon />, to: '/home' },
         ],
     },
 ]
@@ -72,6 +75,7 @@ const styles = theme => ({
 
 function Sidebar(props) {
     const { classes, ...other } = props
+    const history = useHistory();
 
     return (
         <Drawer variant="permanent" {...other}>
@@ -85,7 +89,7 @@ function Sidebar(props) {
                 >
                     Aedibus
                 </ListItem>
-                {categories.map(({ id, children }) => (
+                {Categories.map(({ id, children }) => (
                     <React.Fragment key={id}>
                         <ListItem className={classes.categoryHeader}>
                             <ListItemText
@@ -96,14 +100,16 @@ function Sidebar(props) {
                                 {id}
                             </ListItemText>
                         </ListItem>
-                        {children.map(({ id: childId, icon, active }) => (
+                        {children.map(({ id: childId, icon, to, active }) => (
                             <ListItem
                                 key={childId}
+                                to={to}
                                 button
                                 className={clsx(
                                     classes.item,
                                     active && classes.itemActiveItem
                                 )}
+                                onClick={() => history.push(to)}
                             >
                                 <ListItemIcon className={classes.itemIcon}>
                                     {icon}

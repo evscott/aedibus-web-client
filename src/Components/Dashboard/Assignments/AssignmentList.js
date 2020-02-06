@@ -26,16 +26,12 @@ export default props => {
     const classes = useStyles()
     const { Assignments } = props
 
-    const handleClick = (event) => {
-        history.push("/assignment");
-    }
-
     return (
         <Grid item>
             <div className={classes.demo}>
                 <List>
                     {Assignments.map(({ id, name }) => (
-                        <ListItem key={id} button onClick={handleClick}>
+                        <ListItem key={id} button onClick={() => history.push('/assignment')}>
                             <ListItemIcon className={classes.itemIcon} >
                                 <WebIcon />
                             </ListItemIcon>
