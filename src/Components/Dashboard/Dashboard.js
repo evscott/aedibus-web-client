@@ -10,7 +10,7 @@ import Hidden from '@material-ui/core/Hidden'
 import Sidebar from '../Layouts/Sidebar'
 import Header from '../Layouts/Header/Header'
 import Grid from '@material-ui/core/Grid'
-import MessageFinder from './Messenger/MessageFinder'
+import MessageFinder from './SocialNav/Messenger/MessageFinder'
 import WorkNav from './WorkNav/WorkNav'
 import { Footer } from '../Layouts'
 

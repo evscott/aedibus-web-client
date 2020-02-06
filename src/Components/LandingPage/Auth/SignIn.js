@@ -11,6 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function SignIn(props) {
+    const history = useHistory()
     const { toggleSignUp } = props
     const classes = useStyles()
 
@@ -80,7 +82,7 @@ export default function SignIn(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        href={'/home'}
+                        onClick={() => history.push('/home')}
                     >
                         Sign In
                     </Button>

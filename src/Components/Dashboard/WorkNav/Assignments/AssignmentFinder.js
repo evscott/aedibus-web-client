@@ -13,6 +13,9 @@ import SearchIcon from '@material-ui/icons/Search'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import AssignmentList from './AssignmentList'
 import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import 'typeface-roboto';
 
 const styles = theme => ({
     paper: {
@@ -35,6 +38,9 @@ const styles = theme => ({
     contentWrapper: {
         margin: '16px 16px',
     },
+    assignmentHeader: {
+        marginTop: '3px',
+    }
 })
 
 const Assignments = [
@@ -61,7 +67,7 @@ const Assignments = [
 ]
 
 function AssignmentFinder(props) {
-    const { classes } = props
+    const { classes, handleBack } = props
 
     return (
         <Paper className={classes.paper}>
@@ -82,7 +88,7 @@ function AssignmentFinder(props) {
                         <Grid item xs>
                             <TextField
                                 fullWidth
-                                placeholder="Search for Assignment"
+                                placeholder="Search for assignment"
                                 InputProps={{
                                     disableUnderline: true,
                                     className: classes.searchInput,
@@ -108,6 +114,20 @@ function AssignmentFinder(props) {
                         </Grid>
                     </Grid>
                 </Toolbar>
+                <Divider/>
+                <Grid container>
+                    <Grid item xs={1} md={1} lg={1}>
+                        <Button color={'default'} onClick={handleBack}>
+                            <ArrowBackIosIcon/>
+                        </Button>
+                    </Grid>
+                    <Grid item xs={4} md={4} lg={4} className={classes.assignmentHeader}>
+                        <Typography variant={'h6'} color={'textSecondary'}>
+                            COMP 2631
+                        </Typography>
+                    </Grid>
+                </Grid>
+
             </AppBar>
             <div className={classes.contentWrapper}>
                 <AssignmentList Assignments={Assignments} />

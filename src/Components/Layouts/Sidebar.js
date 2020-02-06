@@ -12,15 +12,19 @@ import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import { Dashboard } from '@material-ui/icons'
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom'
 
 export const Categories = [
     {
         id: 'Work',
         children: [
-            { id: 'Dashboard', icon: <Dashboard/>, to: '/home' },
+            { id: 'Dashboard', icon: <Dashboard />, to: '/home' },
             { id: 'Courses', icon: <DnsRoundedIcon />, to: '/home' },
-            { id: 'Submissions', icon: <AssignmentTurnedInIcon />, to: '/home' },
+            {
+                id: 'Submissions',
+                icon: <AssignmentTurnedInIcon />,
+                to: '/home',
+            },
         ],
     },
     {
@@ -75,7 +79,7 @@ const styles = theme => ({
 
 function Sidebar(props) {
     const { classes, ...other } = props
-    const history = useHistory();
+    const history = useHistory()
 
     return (
         <Drawer variant="permanent" {...other}>

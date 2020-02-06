@@ -1,6 +1,6 @@
 import React from 'react'
-import CourseFinder from '../Courses/CourseFinder'
-import AssignmentFinder from '../Assignments/AssignmentFinder'
+import CourseFinder from './Courses/CourseFinder'
+import AssignmentFinder from './Assignments/AssignmentFinder'
 
 export default props => {
     const [course, setCourse] = React.useState(null)
@@ -9,10 +9,14 @@ export default props => {
         setCourse(event.currentTarget)
     }
 
+    const handleBack = event => {
+        setCourse(null);
+    }
+
     return (
         <div>
             {course ? (
-                <AssignmentFinder />
+                <AssignmentFinder handleBack={handleBack} />
             ) : (
                 <CourseFinder onCourseSelect={onCourseSelect} />
             )}

@@ -179,14 +179,12 @@ function Assignment(props) {
                     <main className={classes.main}>
                         <Grid container>
                             {/* Code Editor */}
-                            <Grid item lg={6} md={12} xs={12}>
+                            <Grid item lg={8} md={12} xs={12}>
                                 <Paper className={classes.CodeMirror}>
                                     <Editor />
                                 </Paper>
                             </Grid>
-                            <Grid item lg={6} md={12} xs={12}>
-
-                            </Grid>
+                            <Grid item lg={4} md={12} xs={12}></Grid>
                         </Grid>
                     </main>
                     <Footer />
