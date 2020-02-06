@@ -184,6 +184,9 @@ function Assignment(props) {
                                     <Editor />
                                 </Paper>
                             </Grid>
+                            <Grid item lg={6} md={12} xs={12}>
+
+                            </Grid>
                         </Grid>
                     </main>
                     <Footer />

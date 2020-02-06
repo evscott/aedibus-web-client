@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import WebIcon from '@material-ui/icons/Web'
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,16 +22,21 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default props => {
+    const history = useHistory();
     const classes = useStyles()
     const { Assignments } = props
+
+    const handleClick = (event) => {
+        history.push("/assignment");
+    }
 
     return (
         <Grid item>
             <div className={classes.demo}>
                 <List>
                     {Assignments.map(({ id, name }) => (
-                        <ListItem key={id} button>
-                            <ListItemIcon className={classes.itemIcon}>
+                        <ListItem key={id} button onClick={handleClick}>
+                            <ListItemIcon className={classes.itemIcon} >
                                 <WebIcon />
                             </ListItemIcon>
                             <ListItemText>{name}</ListItemText>
