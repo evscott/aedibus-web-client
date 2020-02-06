@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import CourseList from "./CourseList";
+import AssignmentList from "./AssignmentList";
 import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
@@ -35,31 +35,38 @@ const styles = theme => ({
     contentWrapper: {
         margin: '16px 16px',
     },
-    typoHeading: {
-        paddingLeft: '10px',
-    }
 });
 
-const courses = [
+const Assignments = [
     {
         id: 0,
-        name: "COMP 2631",
+        name: "Assignment 1",
 
     },
     {
         id: 1,
-        name: "COMP 4911",
+        name: "Assignment 2",
 
     },
     {
         id: 2,
-        name: "COMP 4721",
+        name: "Assignment 3",
+
+    },
+    {
+        id: 4,
+        name: "Assignment 4",
+
+    },
+    {
+        id: 6,
+        name: "Assignment 5",
 
     },
 ];
 
-function CourseFinder(props) {
-    const { classes, onCourseSelect } = props;
+function AssignmentFinder(props) {
+    const { classes } = props;
 
     return (
         <Paper className={classes.paper}>
@@ -72,7 +79,7 @@ function CourseFinder(props) {
                         <Grid item xs>
                             <TextField
                                 fullWidth
-                                placeholder="Search for course"
+                                placeholder="Search for Assignment"
                                 InputProps={{
                                     disableUnderline: true,
                                     className: classes.searchInput,
@@ -81,7 +88,7 @@ function CourseFinder(props) {
                         </Grid>
                         <Grid item>
                             <Button variant="contained" color="primary" className={classes.addUser}>
-                                Create Course
+                                Create Assignment
                             </Button>
                             <Tooltip title="Reload">
                                 <IconButton>
@@ -93,14 +100,14 @@ function CourseFinder(props) {
                 </Toolbar>
             </AppBar>
             <div className={classes.contentWrapper}>
-                <CourseList courses={courses} onCourseSelect={onCourseSelect}/>
+                <AssignmentList Assignments={Assignments}/>
             </div>
         </Paper>
     );
 }
 
-CourseFinder.propTypes = {
+AssignmentFinder.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CourseFinder);
+export default withStyles(styles)(AssignmentFinder);

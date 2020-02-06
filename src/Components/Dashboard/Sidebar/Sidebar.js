@@ -15,14 +15,14 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 
 const categories = [
     {
-        id: 'Left window',
+        id: 'Work',
         children: [
             { id: 'Courses', icon: <DnsRoundedIcon /> },
             { id: 'Submissions', icon: <AssignmentTurnedInIcon /> },
         ],
     },
     {
-        id: 'Right window',
+        id: 'Social',
         children: [
             { id: 'Messenger', icon: <QuestionAnswerIcon /> },
             { id: 'Students', icon: <PeopleIcon /> },

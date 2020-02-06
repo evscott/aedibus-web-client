@@ -10,6 +10,7 @@ import CourseFinder from './Courses/CourseFinder';
 import Header from './Header/Header';
 import Grid from "@material-ui/core/Grid";
 import MessageFinder from "./Messenger/MessageFinder";
+import WorkNav from "./WorkPaper/WorkNav";
 
 function Copyright() {
     return (
@@ -183,7 +184,7 @@ function Dashboard(props) {
                     <main className={classes.main}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={12} xs={12}>
-                                <CourseFinder />
+                                <WorkNav/>
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
                                 <MessageFinder />

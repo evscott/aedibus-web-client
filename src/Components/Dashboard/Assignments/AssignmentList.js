@@ -22,14 +22,14 @@ const useStyles = makeStyles(theme => ({
 
 export default (props) => {
     const classes = useStyles();
-    const { courses, onCourseSelect } = props;
+    const { Assignments } = props;
 
     return (
         <Grid item>
             <div className={classes.demo}>
                 <List>
-                    {courses.map(({ id, name }) => (
-                        <ListItem key={id} button onClick={onCourseSelect}>
+                    {Assignments.map(({ id, name }) => (
+                        <ListItem key={id} button>
                             <ListItemIcon className={classes.itemIcon}>
                                 <WebIcon/>
                             </ListItemIcon>
