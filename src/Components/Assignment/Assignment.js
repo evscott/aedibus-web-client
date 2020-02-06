@@ -8,11 +8,7 @@ import Header from '../Layouts/Header/Header';
 import Grid from "@material-ui/core/Grid";
 import {Footer} from "../Layouts";
 import Paper from "@material-ui/core/Paper";
-import {UnControlled as CodeMirror} from 'react-codemirror2';
-import 'codemirror/lib/codemirror.css';
-require('codemirror/mode/javascript/javascript');
-require('codemirror/theme/material.css');
-import "./Assignment.css"
+import Editor from "../Editor/Editor";
 
 
 let theme = createMuiTheme({
@@ -150,6 +146,7 @@ const styles = {
     },
     CodeMirror: {
         height: 800,
+        padding: '10px',
     },
 };
 
@@ -176,19 +173,10 @@ function Assignment(props) {
                     {/* Assignment Contents */}
                     <main className={classes.main}>
                         <Grid container>
+                            {/* Code Editor */}
                             <Grid item lg={6} md={12} xs={12}>
-                                <Paper>
-                                    <CodeMirror
-                                        className={classes.CodeMirror}
-                                        value='blah'
-                                        options={{
-                                            mode: 'javascript',
-                                            theme: 'material',
-                                            lineNumbers: true
-                                        }}
-                                        onChange={(editor, data, value) => {
-                                        }}
-                                    />
+                                <Paper className={classes.CodeMirror}>
+                                     <Editor/>
                                 </Paper>
                             </Grid>
                         </Grid>
