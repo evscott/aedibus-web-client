@@ -164,6 +164,13 @@ const styles = {
 function Dashboard(props) {
     const { classes } = props
 
+    const [crumbs, setCrumbs] = React.useState([
+        {
+            path: 'Dashboard',
+            target: '/home'
+        }
+    ])
+
     // const [creatingCourse, createCourse] = React.useState(false);
     // const startCreatingCourse = () => {
     //     createCourse(true);
@@ -201,19 +208,12 @@ function Dashboard(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header title={
-                        [
-                            {
-                                path: 'Dashboard',
-                                target: 'home'
-                            }
-                        ]
-                    }/>
+                    <Header crumbs={crumbs}/>
                     {/* Dashboard Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={12} xs={12}>
-                                <WorkNav />
+                                <WorkNav crumbs={crumbs} setCrumbs={setCrumbs}/>
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
                                 <AnnouncementFinder handleOpen={startCreatingAnnouncement}/>

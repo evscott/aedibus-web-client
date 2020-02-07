@@ -187,8 +187,24 @@ const styles = {
 
 function Assignment(props) {
     const { classes } = props
+
+    const [crumbs, setCrumbs] = React.useState([
+        {
+            path: 'Dashboard',
+            target: '/home'
+        },
+        {
+            path: 'COMP 2631',
+            target: '/home'
+        },
+        {
+            path: 'Assignment 1',
+            target: '/assignment'
+        }
+    ])
     
     const [value, setValue] = React.useState(0);
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -203,23 +219,7 @@ function Assignment(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header title={
-                            [
-                                {
-                                    path: 'Dashboard',
-                                    target: '/home'
-                                },
-                                {
-                                    path: 'COMP-2631',
-                                    target: '/assignment'
-                                },
-                                {
-                                    path: 'Assignment-1',
-                                    target: '/assignment'
-                                },
-                            ]
-                        }
-                    />
+                    <Header crumbs={crumbs} />
                     {/* Assignment Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={3}>
@@ -261,7 +261,7 @@ function Assignment(props) {
                                                     </Tooltip>
                                                 </Button>
                                             </Grid>
-                                            <Grid xs={1} md={1} lg={1}>
+                                            <Grid item xs={1} md={1} lg={1}>
                                                 <Button color="primary">
                                                     <Tooltip title={'New file'} placement="top-start" TransitionComponent={Zoom}>
                                                         <AddIcon/>

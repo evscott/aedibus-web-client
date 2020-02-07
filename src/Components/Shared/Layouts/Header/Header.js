@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom'
 
 export default props => {
     const history = useHistory()
-    const { title } = props
+    const { crumbs } = props
 
     const [anchorEl, setAnchorEl] = React.useState(null)
 
@@ -29,8 +29,8 @@ export default props => {
                 <Toolbar>
                     <Grid container spacing={1} alignItems="center">
                         <Breadcrumbs aria-label="breadcrumb">
-                            { title.map(({path, target}) => (
-                                <Button color="inherit" onClick={() => history.push(target)}>
+                            { crumbs.map(({path, target}) => (
+                                <Button key={path} color="inherit" onClick={() => history.push(target)}>
                                     {path}
                                 </Button>
                             ))}
