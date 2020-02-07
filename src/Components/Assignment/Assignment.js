@@ -25,6 +25,8 @@ import Divider from '@material-ui/core/Divider'
 import Tooltip from '@material-ui/core/Tooltip'
 import Zoom from '@material-ui/core/Zoom'
 import Instructions from './Instructions'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import ClearAllIcon from '@material-ui/icons/ClearAll';
 
 let theme = createMuiTheme({
     palette: {
@@ -178,6 +180,9 @@ const styles = {
     createTab: {
         marginTop: '8px'
     },
+    buttons: {
+        marginTop: '8px'
+    }
 }
 
 function Assignment(props) {
@@ -198,7 +203,23 @@ function Assignment(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header title={'COMP 2631: Assignment 1'} />
+                    <Header title={
+                            [
+                                {
+                                    path: 'Dashboard',
+                                    target: '/home'
+                                },
+                                {
+                                    path: 'COMP-2631',
+                                    target: '/assignment'
+                                },
+                                {
+                                    path: 'Assignment-1',
+                                    target: '/assignment'
+                                },
+                            ]
+                        }
+                    />
                     {/* Assignment Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={3}>
@@ -211,27 +232,41 @@ function Assignment(props) {
                                     >
                                         <Toolbar>
                                             <Grid container>
-                                                <Grid xs={1} md={1} lg={1}>
-                                                    <Button color="primary" size={'small'} className={classes.createTab}>
-                                                        <Tooltip title={'New file'} placement="top-start" TransitionComponent={Zoom}>
-                                                            <AddIcon/>
-                                                        </Tooltip>
-                                                    </Button>
-                                                </Grid>
-                                                <Grid xs={11} md={11} lg={11} item>
+                                                <Grid xs={9} md={9} lg={9} item>
                                                     <Tabs
                                                         onChange={(e, v) => setValue(v)}
                                                         value={value}
                                                         variant="scrollable"
                                                         scrollButtons="auto"
                                                     >
-                                                        <Tab label={"File1.c"} />
-                                                        <Tab label={"File2.c"} />
-                                                        <Tab label={"File3.c"} />
-                                                        <Tab label={"File4.c"} />
-                                                        <Tab label={"File5.c"} />
+                                                        <Tab label={"File1.js"} />
+                                                        <Tab label={"File2.js"} />
+                                                        <Tab label={"File3.js"} />
+                                                        <Tab label={"File4.js"} />
+                                                        <Tab label={"File5.js"} />
                                                     </Tabs>
                                                 </Grid>
+                                            </Grid>
+                                            <Grid item xs={1} md={1} lg={1}>
+                                                <Button color={'default'}>
+                                                    <Tooltip title={'Delete all files'} placement="top-end" TransitionComponent={Zoom}>
+                                                        <ClearAllIcon/>
+                                                    </Tooltip>
+                                                </Button>
+                                            </Grid>
+                                            <Grid item xs={1} md={1} lg={1}>
+                                                <Button color={'default'}>
+                                                    <Tooltip title={'Delete file'} placement="top" TransitionComponent={Zoom}>
+                                                        <DeleteForeverIcon/>
+                                                    </Tooltip>
+                                                </Button>
+                                            </Grid>
+                                            <Grid xs={1} md={1} lg={1}>
+                                                <Button color="primary">
+                                                    <Tooltip title={'New file'} placement="top-start" TransitionComponent={Zoom}>
+                                                        <AddIcon/>
+                                                    </Tooltip>
+                                                </Button>
                                             </Grid>
                                         </Toolbar>
                                     </AppBar>
@@ -256,6 +291,14 @@ function Assignment(props) {
                                     </AppBar>
                                     <Instructions/>
                                 </Paper>
+                                <Grid container className={classes.buttons} spacing={3}>
+                                    <Grid item xs={10} md={10} lg={10}/>
+                                    <Grid item xs={1} md={1} lg={1}>
+                                        <Button variant="contained" color="primary">
+                                            Submit
+                                        </Button>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </main>

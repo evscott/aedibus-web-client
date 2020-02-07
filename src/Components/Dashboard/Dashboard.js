@@ -201,7 +201,14 @@ function Dashboard(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header title={'Dashboard'}/>
+                    <Header title={
+                        [
+                            {
+                                path: 'Dashboard',
+                                target: 'home'
+                            }
+                        ]
+                    }/>
                     {/* Dashboard Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={2}>

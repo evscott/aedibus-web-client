@@ -5,11 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 import Tooltip from '@material-ui/core/Tooltip'
 import IconButton from '@material-ui/core/IconButton'
 import { withStyles } from '@material-ui/core/styles'
-import SearchIcon from '@material-ui/icons/Search'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import AssignmentList from './AssignmentList'
 import Typography from '@material-ui/core/Typography'
@@ -99,7 +97,7 @@ function AssignmentFinder(props) {
                     </Grid>
                 </Toolbar>
                 <Divider light/>
-                <Grid container>
+                <Grid container spacing={1}>
                     <Grid item xs={1} md={1} lg={1}>
                         <Button color={'default'} onClick={handleBack}>
                             <ArrowBackIosIcon/>
