@@ -1,0 +1,25 @@
+{
+  "name": "aedibus-web-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "codemirror": "^5.51.0",
+    "react": "^16.12.0",
+    "react-codemirror2": "^6.0.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "latest",
+    "react-scripts": "0.9.5",
+    "typeface-roboto": "0.0.75"
+  },
+  "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
