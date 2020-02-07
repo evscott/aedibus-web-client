@@ -12,9 +12,9 @@ import RefreshIcon from '@material-ui/icons/Refresh'
 import AssignmentList from './AssignmentList'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import AddIcon from '@material-ui/icons/Add';
-import 'typeface-roboto';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import AddIcon from '@material-ui/icons/Add'
+import 'typeface-roboto'
 import Zoom from '@material-ui/core/Zoom'
 
 const styles = theme => ({
@@ -40,7 +40,7 @@ const styles = theme => ({
     },
     assignmentHeader: {
         marginTop: '4px',
-    }
+    },
 })
 
 const Assignments = [
@@ -67,7 +67,7 @@ const Assignments = [
 ]
 
 function AssignmentFinder(props) {
-    const { classes, handleBack } = props
+    const { courseName, classes, handleBack } = props
 
     return (
         <Paper className={classes.paper}>
@@ -81,7 +81,7 @@ function AssignmentFinder(props) {
                     <Grid container spacing={2} alignItems="center">
                         <Grid item xs={11} md={11} lg={11}>
                             <Typography variant={'h6'} color={'textSecondary'}>
-                                COMP 2631
+                                {courseName}
                             </Typography>
                         </Grid>
                         <Grid item xs={1} md={1} lg={1}>
@@ -103,7 +103,13 @@ function AssignmentFinder(props) {
                             <ArrowBackIosIcon/>
                         </Button>
                     </Grid>
-                    <Grid item xs={4} md={4} lg={4} className={classes.assignmentHeader}>
+                    <Grid
+                        item
+                        xs={4}
+                        md={4}
+                        lg={4}
+                        className={classes.assignmentHeader}
+                    >
                         <Typography variant={'h6'} color={'textSecondary'}>
                             Assignments
                         </Typography>
@@ -111,14 +117,24 @@ function AssignmentFinder(props) {
                 </Grid>
             </AppBar>
             <Grid container>
-                <Grid item xs={12} md={12} lg={12} className={classes.contentWrapper}>
-                    <AssignmentList Assignments={Assignments} />
+                <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={12}
+                    className={classes.contentWrapper}
+                >
+                    <AssignmentList courseName={courseName} assignments={Assignments}/>
                 </Grid>
                 <Grid item xs={11} md={11} lg={11}/>
                 <Grid item xs={1} md={1} lg={1}>
                     <Button color="primary" size={'small'} aria-label="add">
-                        <Tooltip title={'Create assignment'} placement="left" TransitionComponent={Zoom}>
-                            <AddIcon />
+                        <Tooltip
+                            title={'Create assignment'}
+                            placement="left"
+                            TransitionComponent={Zoom}
+                        >
+                            <AddIcon/>
                         </Tooltip>
                     </Button>
                 </Grid>

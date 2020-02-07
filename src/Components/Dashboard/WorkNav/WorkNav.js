@@ -7,24 +7,25 @@ export default props => {
     const [course, setCourse] = React.useState(null)
 
     const onCourseSelect = course => {
-        setCrumbs([...crumbs, {
-            path: course,
-            target: "/home",
-        }])
+        setCrumbs([
+            ...crumbs,
+            {
+                path: course,
+                target: '/home',
+            },
+        ])
         setCourse(course)
     }
 
     const handleBack = event => {
-        setCourse(null);
-        setCrumbs([
-            crumbs[0],
-        ])
+        setCourse(null)
+        setCrumbs([crumbs[0]])
     }
 
     return (
         <div>
             {course ? (
-                <AssignmentFinder handleBack={handleBack} />
+                <AssignmentFinder courseName={course} handleBack={handleBack}/>
             ) : (
                 <CourseFinder onCourseSelect={onCourseSelect} />
             )}

@@ -1,131 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-    createMuiTheme,
-    ThemeProvider,
-    withStyles,
-} from '@material-ui/core/styles'
+import { ThemeProvider, withStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
 import WorkNav from './WorkNav/WorkNav'
 import { Header, Footer, Sidebar } from '../Shared/Layouts'
 import AnnouncementFinder from './Announcements/AnnouncementFinder'
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Modal from '@material-ui/core/Modal'
+import Backdrop from '@material-ui/core/Backdrop'
+import Fade from '@material-ui/core/Fade'
+import { theme } from './root-theme'
 
-let theme = createMuiTheme({
-    palette: {
-        primary: {
-            light: '#63ccff',
-            main: '#009be5',
-            dark: '#006db3',
-        },
-    },
-    typography: {
-        h5: {
-            fontWeight: 500,
-            fontSize: 26,
-            letterSpacing: 0.5,
-        },
-    },
-    shape: {
-        borderRadius: 8,
-    },
-    props: {
-        MuiTab: {
-            disableRipple: true,
-        },
-    },
-    mixins: {
-        toolbar: {
-            minHeight: 48,
-        },
-    },
-})
-
-theme = {
-    ...theme,
-    overrides: {
-        MuiDrawer: {
-            paper: {
-                backgroundColor: '#18202c',
-            },
-        },
-        MuiButton: {
-            label: {
-                textTransform: 'none',
-            },
-            contained: {
-                boxShadow: 'none',
-                '&:active': {
-                    boxShadow: 'none',
-                },
-            },
-        },
-        MuiTabs: {
-            root: {
-                marginLeft: theme.spacing(1),
-            },
-            indicator: {
-                height: 3,
-                borderTopLeftRadius: 3,
-                borderTopRightRadius: 3,
-                backgroundColor: theme.palette.common.white,
-            },
-        },
-        MuiTab: {
-            root: {
-                textTransform: 'none',
-                margin: '0 16px',
-                minWidth: 0,
-                padding: 0,
-                [theme.breakpoints.up('md')]: {
-                    padding: 0,
-                    minWidth: 0,
-                },
-            },
-        },
-        MuiIconButton: {
-            root: {
-                padding: theme.spacing(1),
-            },
-        },
-        MuiTooltip: {
-            tooltip: {
-                borderRadius: 4,
-            },
-        },
-        MuiDivider: {
-            root: {
-                backgroundColor: '#404854',
-            },
-        },
-        MuiListItemText: {
-            primary: {
-                fontWeight: theme.typography.fontWeightMedium,
-            },
-        },
-        MuiListItemIcon: {
-            root: {
-                color: 'inherit',
-                marginRight: 0,
-                '& svg': {
-                    fontSize: 20,
-                },
-            },
-        },
-        MuiAvatar: {
-            root: {
-                width: 32,
-                height: 32,
-            },
-        },
-    },
-}
-
-const drawerWidth = 256
+const drawerWidth = 195
 
 const styles = {
     root: {
@@ -167,8 +54,8 @@ function Dashboard(props) {
     const [crumbs, setCrumbs] = React.useState([
         {
             path: 'Dashboard',
-            target: '/home'
-        }
+            target: '/home',
+        },
     ])
 
     // const [creatingCourse, createCourse] = React.useState(false);
@@ -187,12 +74,12 @@ function Dashboard(props) {
     //     createAssignment(true);
     // };
 
-    const [creatingAnnouncement, createAnnouncement] = React.useState(false);
+    const [creatingAnnouncement, createAnnouncement] = React.useState(false)
     const startCreatingAnnouncement = () => {
-        createAnnouncement(true);
-    };
+        createAnnouncement(true)
+    }
     const stopCreatingAnnouncement = () => {
-        createAnnouncement(false);
+        createAnnouncement(false)
     }
 
     return (
@@ -213,10 +100,15 @@ function Dashboard(props) {
                     <main className={classes.main}>
                         <Grid container spacing={2}>
                             <Grid item lg={6} md={12} xs={12}>
-                                <WorkNav crumbs={crumbs} setCrumbs={setCrumbs}/>
+                                <WorkNav
+                                    crumbs={crumbs}
+                                    setCrumbs={setCrumbs}
+                                />
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
-                                <AnnouncementFinder handleOpen={startCreatingAnnouncement}/>
+                                <AnnouncementFinder
+                                    handleOpen={startCreatingAnnouncement}
+                                />
                             </Grid>
                         </Grid>
                     </main>
@@ -236,7 +128,9 @@ function Dashboard(props) {
                 >
                     <Fade in={creatingAnnouncement}>
                         <div className={classes.paper}>
-                            <h2 id="transition-modal-title">Create announcement form goes here</h2>
+                            <h2 id="transition-modal-title">
+                                Create announcement form goes here
+                            </h2>
                         </div>
                     </Fade>
                 </Modal>

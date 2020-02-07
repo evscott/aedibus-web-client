@@ -25,21 +25,27 @@ const useStyles = makeStyles(theme => ({
 export default props => {
     const history = useHistory()
     const classes = useStyles()
-    const { Assignments } = props
+    const { courseName, assignments } = props
 
     return (
         <Grid item>
             <div className={classes.demo}>
                 <List>
-                    {Assignments.map(({ id, name }) => (
+                    {assignments.map(({ id, name }) => (
                         <Fragment key={id}>
                             <ListItem
                                 key={id}
                                 button
-                                onClick={() => history.push('/assignment')}
+                                onClick={() => history.push({
+                                    pathname: '/assignment',
+                                    state: {
+                                        courseName: courseName,
+                                        assignmentName: name,
+                                    },
+                                })}
                             >
                                 <ListItemIcon className={classes.itemIcon}>
-                                    <WebIcon />
+                                    <WebIcon/>
                                 </ListItemIcon>
                                 <ListItemText>{name}</ListItemText>
                             </ListItem>

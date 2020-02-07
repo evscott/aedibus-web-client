@@ -13,7 +13,7 @@ import RefreshIcon from '@material-ui/icons/Refresh'
 import AnnouncementList from './AnnouncementList'
 import AddIcon from '@material-ui/icons/Add'
 import Button from '@material-ui/core/Button'
-import Zoom from '@material-ui/core/Zoom';
+import Zoom from '@material-ui/core/Zoom'
 
 const styles = theme => ({
     paper: {
@@ -39,7 +39,7 @@ const styles = theme => ({
     createButton: {
         bottom: theme.spacing(2),
         right: theme.spacing(2),
-    }
+    },
 })
 
 const announcements = [
@@ -47,13 +47,14 @@ const announcements = [
         id: 0,
         course: 'COMP 4911',
         system: false,
-        message: 'Some message from the instructor about something'
+        message: 'Some message from the instructor about something',
     },
     {
         id: 1,
         course: 'COMP 2931',
         system: true,
-        message: 'Some automated message from the system about a deadline or something'
+        message:
+            'Some automated message from the system about a deadline or something',
     },
     {
         id: 2,
@@ -65,7 +66,7 @@ const announcements = [
         id: 3,
         course: 'COMP 4721',
         system: false,
-        message: 'Some message from the instructor about something'
+        message: 'Some message from the instructor about something',
     },
 ]
 
@@ -112,14 +113,29 @@ function AnnouncementFinder(props) {
                 </Toolbar>
             </AppBar>
             <Grid container>
-                <Grid item xs={12} md={12} lg={12} className={classes.contentWrapper}>
-                    <AnnouncementList announcements={announcements} />
+                <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={12}
+                    className={classes.contentWrapper}
+                >
+                    <AnnouncementList announcements={announcements}/>
                 </Grid>
                 <Grid item xs={11} md={11} lg={11}/>
                 <Grid item xs={1} md={1} lg={1}>
-                    <Button color="primary" size={'medium'} aria-label="add" onClick={handleOpen}>
-                        <Tooltip title={'Create announcement'} placement="left" TransitionComponent={Zoom}>
-                            <AddIcon />
+                    <Button
+                        color="primary"
+                        size={'medium'}
+                        aria-label="add"
+                        onClick={handleOpen}
+                    >
+                        <Tooltip
+                            title={'Create announcement'}
+                            placement="left"
+                            TransitionComponent={Zoom}
+                        >
+                            <AddIcon/>
                         </Tooltip>
                     </Button>
                 </Grid>

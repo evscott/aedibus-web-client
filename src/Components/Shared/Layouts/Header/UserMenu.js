@@ -6,7 +6,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import SettingsIcon from '@material-ui/icons/Settings'
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople'
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
     iconButtonAvatar: {

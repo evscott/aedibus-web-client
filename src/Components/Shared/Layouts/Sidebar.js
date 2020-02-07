@@ -11,7 +11,7 @@ import PeopleIcon from '@material-ui/icons/People'
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import { Dashboard } from '@material-ui/icons'
-import AnnouncementIcon from '@material-ui/icons/Announcement';
+import AnnouncementIcon from '@material-ui/icons/Announcement'
 import { useHistory } from 'react-router-dom'
 
 export const Categories = [

@@ -3,16 +3,17 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 
-const useStyles = makeStyles( () => ({
+const useStyles = makeStyles(() => ({
     Instructions: {
         backgroundColor: 'lightgray',
         height: '680px',
         overflow: 'auto',
-        padding: '0px 25px 0px 25px'
+        padding: '0px 25px 0px 25px',
     },
 }))
 
-const instructions = '# Grabana\n' +
+const instructions =
+    '# Grabana\n' +
     '\n' +
     '![CI](https://github.com/K-Phoen/grabana/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/K-Phoen/grabana)](https://goreportcard.com/report/github.com/K-Phoen/grabana) [![codecov](https://codecov.io/gh/K-Phoen/grabana/branch/master/graph/badge.svg)](https://codecov.io/gh/K-Phoen/grabana) [![GoDoc](https://godoc.org/github.com/K-Phoen/grabana?status.svg)](https://godoc.org/github.com/K-Phoen/grabana)\n' +
     '\n' +
@@ -85,10 +86,10 @@ const instructions = '# Grabana\n' +
     '\n' +
     'For a more complete example, see the [`example`](./cmd/example/) directory.'
 
-export default (props) => {
-    const classes = useStyles();
+export default props => {
+    const classes = useStyles()
 
     return (
         <ReactMarkdown source={instructions} className={classes.Instructions}/>
-    );
+    )
 }

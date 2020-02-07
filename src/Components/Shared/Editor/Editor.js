@@ -1,9 +1,10 @@
 import React from 'react'
 import { UnControlled as CodeMirror } from 'react-codemirror2'
 import 'codemirror/lib/codemirror.css'
+import './Editor.css'
+
 require('codemirror/mode/javascript/javascript')
 require('codemirror/theme/material.css')
-import './Editor.css'
 
 export default props => {
     return (

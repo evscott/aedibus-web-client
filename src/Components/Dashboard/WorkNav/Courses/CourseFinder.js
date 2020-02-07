@@ -12,7 +12,7 @@ import RefreshIcon from '@material-ui/icons/Refresh'
 import CourseList from './CourseList'
 import Typography from '@material-ui/core/Typography'
 import AddIcon from '@material-ui/icons/Add'
-import Zoom from '@material-ui/core/Zoom';
+import Zoom from '@material-ui/core/Zoom'
 
 const styles = theme => ({
     paper: {
@@ -87,14 +87,27 @@ function CourseFinder(props) {
                 </Toolbar>
             </AppBar>
             <Grid container>
-                <Grid item xs={12} md={12} lg={12} className={classes.contentWrapper}>
-                    <CourseList courses={courses} onCourseSelect={onCourseSelect} />
+                <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={12}
+                    className={classes.contentWrapper}
+                >
+                    <CourseList
+                        courses={courses}
+                        onCourseSelect={onCourseSelect}
+                    />
                 </Grid>
                 <Grid item xs={11} md={11} lg={11}/>
                 <Grid item xs={1} md={1} lg={1}>
                     <Button color="primary" size={'small'} aria-label="add">
-                        <Tooltip title={'Create course'} placement="left" TransitionComponent={Zoom}>
-                            <AddIcon />
+                        <Tooltip
+                            title={'Create course'}
+                            placement="left"
+                            TransitionComponent={Zoom}
+                        >
+                            <AddIcon/>
                         </Tooltip>
                     </Button>
                 </Grid>

@@ -31,9 +31,13 @@ export default props => {
                 <List>
                     {courses.map(({ id, name }) => (
                         <Fragment key={id}>
-                            <ListItem key={id} button onClick={() => onCourseSelect(name)}>
+                            <ListItem
+                                key={id}
+                                button
+                                onClick={() => onCourseSelect(name)}
+                            >
                                 <ListItemIcon className={classes.itemIcon}>
-                                    <WebIcon />
+                                    <WebIcon/>
                                 </ListItemIcon>
                                 <ListItemText>{name}</ListItemText>
                             </ListItem>
