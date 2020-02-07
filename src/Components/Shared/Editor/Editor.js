@@ -8,7 +8,7 @@ import './Editor.css'
 export default props => {
     return (
         <CodeMirror
-            value="blah"
+            value="const main = () => console.log('Hello!');"
             options={{
                 mode: 'javascript',
                 theme: 'material',

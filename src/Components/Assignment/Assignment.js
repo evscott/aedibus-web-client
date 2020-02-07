@@ -13,6 +13,17 @@ import Grid from '@material-ui/core/Grid'
 import { Footer } from '../Shared/Layouts'
 import Paper from '@material-ui/core/Paper'
 import Editor from '../Shared/Editor/Editor'
+import ReactMarkdown from "react-markdown";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from "@material-ui/core/Toolbar";
+import { Tabs } from "@material-ui/core";
+import Tab from "@material-ui/core/Tab";
+import Typography from '@material-ui/core/Typography'
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import Tooltip from '@material-ui/core/Tooltip'
+import Zoom from '@material-ui/core/Zoom'
 
 let theme = createMuiTheme({
     palette: {
@@ -151,6 +162,27 @@ const styles = {
         height: 800,
         padding: '10px',
     },
+    InstructionsPaper: {
+        padding: '10px',
+    },
+    Instructions: {
+        backgroundColor: 'lightgray',
+        minHeight: '600px',
+        height: '100%',
+        overflow: 'auto',
+        padding: '0px 25px 0px 25px'
+    },
+    button: {
+        margin: theme.spacing(1),
+        right: '0px',
+        bottom: '0px'
+    },
+    assignmentTitle: {
+        marginTop: '8px'
+    },
+    createTab: {
+        marginTop: '8px'
+    }
 }
 
 function Assignment(props) {
@@ -160,6 +192,8 @@ function Assignment(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen)
     }
+
+    const [value, setValue] = React.useState(0);
 
     return (
         <ThemeProvider theme={theme}>
@@ -177,14 +211,53 @@ function Assignment(props) {
                     <Header onDrawerToggle={handleDrawerToggle} />
                     {/* Assignment Contents */}
                     <main className={classes.main}>
-                        <Grid container>
+                        <Grid container spacing={3}>
                             {/* Code Editor */}
                             <Grid item lg={8} md={12} xs={12}>
                                 <Paper className={classes.CodeMirror}>
+                                    <AppBar
+                                        position="relative"
+                                        color="default"
+                                    >
+                                        <Toolbar>
+                                            <Grid container>
+                                                <Grid xs={12} md={7} lg={7} item className={classes.assignmentTitle}>
+                                                    <Typography variant={'h6'} color={'textSecondary'}>
+                                                        COMP 2631: Assignment #1
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid xs={11} md={4} lg={4} item>
+                                                    <Tabs
+                                                        onChange={(e, v) => setValue(v)}
+                                                        value={value}
+                                                        variant="scrollable"
+                                                        scrollButtons="auto"
+                                                    >
+                                                        <Tab label={"File1.c"} />
+                                                        <Tab label={"File2.c"} />
+                                                        <Tab label={"File3.c"} />
+                                                        <Tab label={"File4.c"} />
+                                                        <Tab label={"File5.c"} />
+                                                    </Tabs>
+                                                </Grid>
+                                                <Grid xs={1} md={1} lg={1}>
+                                                    <Button color="primary" size={'small'} className={classes.createTab}>
+                                                        <Tooltip title={'New file'} placement="top-end" TransitionComponent={Zoom}>
+                                                            <AddIcon/>
+                                                        </Tooltip>
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                        </Toolbar>
+                                    </AppBar>
                                     <Editor />
                                 </Paper>
                             </Grid>
-                            <Grid item lg={4} md={12} xs={12}></Grid>
+                            <Grid item lg={4} md={12} xs={12}>
+                                <Paper className={classes.InstructionsPaper}>
+                                    <ReactMarkdown source={'# Instructions go here'} className={classes.Instructions}/>
+                                </Paper>
+                            </Grid>
                         </Grid>
                     </main>
                     <Footer />

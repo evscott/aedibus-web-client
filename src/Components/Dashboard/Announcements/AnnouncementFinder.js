@@ -57,13 +57,13 @@ const announcements = [
     },
     {
         id: 2,
-        course: 'COMP 1731',
+        course: 'COMP 4911',
         system: false,
         message: 'Some message from the instructor about something',
     },
     {
         id: 3,
-        course: 'COMP 3721',
+        course: 'COMP 4721',
         system: false,
         message: 'Some message from the instructor about something'
     },
