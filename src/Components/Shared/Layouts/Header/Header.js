@@ -4,9 +4,10 @@ import Grid from '@material-ui/core/Grid'
 import Toolbar from '@material-ui/core/Toolbar'
 import UserMenu from './UserMenu'
 import Typography from '@material-ui/core/Typography'
-import { Dashboard } from '@material-ui/icons'
 
 export default props => {
+    const { title } = props
+
     const [anchorEl, setAnchorEl] = React.useState(null)
 
     const handleClick = event => {
@@ -22,6 +23,9 @@ export default props => {
             <AppBar color="primary" position="sticky" elevation={0}>
                 <Toolbar>
                     <Grid container spacing={1} alignItems="center">
+                        <Typography variant={'h6'}>
+                            { title }
+                        </Typography>
                         <Grid item xs/>
                         <Grid item>Eliot Scott</Grid>
                         <Grid item>

@@ -201,7 +201,7 @@ function Dashboard(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header/>
+                    <Header title={'Dashboard'}/>
                     {/* Dashboard Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={2}>

@@ -24,6 +24,7 @@ import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Tooltip from '@material-ui/core/Tooltip'
 import Zoom from '@material-ui/core/Zoom'
+import Instructions from './Instructions'
 
 let theme = createMuiTheme({
     palette: {
@@ -164,13 +165,7 @@ const styles = {
     },
     InstructionsPaper: {
         padding: '10px',
-    },
-    Instructions: {
-        backgroundColor: 'lightgray',
         minHeight: '600px',
-        height: '100%',
-        overflow: 'auto',
-        padding: '0px 25px 0px 25px'
     },
     button: {
         margin: theme.spacing(1),
@@ -182,17 +177,12 @@ const styles = {
     },
     createTab: {
         marginTop: '8px'
-    }
+    },
 }
 
 function Assignment(props) {
     const { classes } = props
-    const [mobileOpen, setMobileOpen] = React.useState(false)
-
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen)
-    }
-
+    
     const [value, setValue] = React.useState(0);
 
     return (
@@ -208,12 +198,12 @@ function Assignment(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header onDrawerToggle={handleDrawerToggle} />
+                    <Header title={'COMP 2631: Assignment 1'} />
                     {/* Assignment Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={3}>
                             {/* Code Editor */}
-                            <Grid item lg={8} md={12} xs={12}>
+                            <Grid item lg={7} md={12} xs={12}>
                                 <Paper className={classes.CodeMirror}>
                                     <AppBar
                                         position="relative"
@@ -221,12 +211,14 @@ function Assignment(props) {
                                     >
                                         <Toolbar>
                                             <Grid container>
-                                                <Grid xs={12} md={7} lg={7} item className={classes.assignmentTitle}>
-                                                    <Typography variant={'h6'} color={'textSecondary'}>
-                                                        COMP 2631: Assignment #1
-                                                    </Typography>
+                                                <Grid xs={1} md={1} lg={1}>
+                                                    <Button color="primary" size={'small'} className={classes.createTab}>
+                                                        <Tooltip title={'New file'} placement="top-start" TransitionComponent={Zoom}>
+                                                            <AddIcon/>
+                                                        </Tooltip>
+                                                    </Button>
                                                 </Grid>
-                                                <Grid xs={11} md={4} lg={4} item>
+                                                <Grid xs={11} md={11} lg={11} item>
                                                     <Tabs
                                                         onChange={(e, v) => setValue(v)}
                                                         value={value}
@@ -240,22 +232,29 @@ function Assignment(props) {
                                                         <Tab label={"File5.c"} />
                                                     </Tabs>
                                                 </Grid>
-                                                <Grid xs={1} md={1} lg={1}>
-                                                    <Button color="primary" size={'small'} className={classes.createTab}>
-                                                        <Tooltip title={'New file'} placement="top-end" TransitionComponent={Zoom}>
-                                                            <AddIcon/>
-                                                        </Tooltip>
-                                                    </Button>
-                                                </Grid>
                                             </Grid>
                                         </Toolbar>
                                     </AppBar>
                                     <Editor />
                                 </Paper>
                             </Grid>
-                            <Grid item lg={4} md={12} xs={12}>
+                            <Grid item lg={5} md={12} xs={12}>
                                 <Paper className={classes.InstructionsPaper}>
-                                    <ReactMarkdown source={'# Instructions go here'} className={classes.Instructions}/>
+                                    <AppBar
+                                        position="relative"
+                                        color="default"
+                                    >
+                                        <Toolbar>
+                                            <Grid container>
+                                                <Grid xs={12} md={7} lg={7} item>
+                                                    <Typography variant={'h6'} color={'textSecondary'}>
+                                                        README.md
+                                                    </Typography>
+                                                </Grid>
+                                            </Grid>
+                                        </Toolbar>
+                                    </AppBar>
+                                    <Instructions/>
                                 </Paper>
                             </Grid>
                         </Grid>
