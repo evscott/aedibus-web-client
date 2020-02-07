@@ -5,14 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 import Tooltip from '@material-ui/core/Tooltip'
 import IconButton from '@material-ui/core/IconButton'
 import { withStyles } from '@material-ui/core/styles'
-import SearchIcon from '@material-ui/icons/Search'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import CourseList from './CourseList'
 import Typography from '@material-ui/core/Typography'
+import AddIcon from '@material-ui/icons/Add'
+import Zoom from '@material-ui/core/Zoom';
 
 const styles = theme => ({
     paper: {
@@ -68,30 +68,12 @@ function CourseFinder(props) {
             >
                 <Toolbar>
                     <Grid container spacing={2} alignItems="center">
-                        <Grid item>
-                            <SearchIcon
-                                className={classes.block}
-                                color="inherit"
-                            />
+                        <Grid item xs={11} md={11} lg={11}>
+                            <Typography variant={'h6'} color={'textSecondary'}>
+                                Courses
+                            </Typography>
                         </Grid>
-                        <Grid item xs>
-                            <TextField
-                                fullWidth
-                                placeholder="Search for course"
-                                InputProps={{
-                                    disableUnderline: true,
-                                    className: classes.searchInput,
-                                }}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className={classes.addUser}
-                            >
-                                Create Course
-                            </Button>
+                        <Grid item xs={1} md={1} lg={1}>
                             <Tooltip title="Reload">
                                 <IconButton>
                                     <RefreshIcon
@@ -104,9 +86,19 @@ function CourseFinder(props) {
                     </Grid>
                 </Toolbar>
             </AppBar>
-            <div className={classes.contentWrapper}>
-                <CourseList courses={courses} onCourseSelect={onCourseSelect} />
-            </div>
+            <Grid container>
+                <Grid item xs={12} md={12} lg={12} className={classes.contentWrapper}>
+                    <CourseList courses={courses} onCourseSelect={onCourseSelect} />
+                </Grid>
+                <Grid item xs={11} md={11} lg={11}/>
+                <Grid item xs={1} md={1} lg={1}>
+                    <Button color="primary" size={'small'} aria-label="add">
+                        <Tooltip title={'Create course'} placement="left" TransitionComponent={Zoom}>
+                            <AddIcon />
+                        </Tooltip>
+                    </Button>
+                </Grid>
+            </Grid>
         </Paper>
     )
 }

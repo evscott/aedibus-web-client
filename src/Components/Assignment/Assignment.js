@@ -7,12 +7,12 @@ import {
 } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Hidden from '@material-ui/core/Hidden'
-import Sidebar from '../Layouts/Sidebar'
-import Header from '../Layouts/Header/Header'
+import Sidebar from '../Shared/Layouts/Sidebar'
+import Header from '../Shared/Layouts/Header/Header'
 import Grid from '@material-ui/core/Grid'
-import { Footer } from '../Layouts'
+import { Footer } from '../Shared/Layouts'
 import Paper from '@material-ui/core/Paper'
-import Editor from '../Editor/Editor'
+import Editor from '../Shared/Editor/Editor'
 
 let theme = createMuiTheme({
     palette: {

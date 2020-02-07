@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
@@ -7,6 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import WebIcon from '@material-ui/icons/Web'
 import { useHistory } from 'react-router-dom'
+import Divider from '@material-ui/core/Divider'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -31,16 +32,19 @@ export default props => {
             <div className={classes.demo}>
                 <List>
                     {Assignments.map(({ id, name }) => (
-                        <ListItem
-                            key={id}
-                            button
-                            onClick={() => history.push('/assignment')}
-                        >
-                            <ListItemIcon className={classes.itemIcon}>
-                                <WebIcon />
-                            </ListItemIcon>
-                            <ListItemText>{name}</ListItemText>
-                        </ListItem>
+                        <Fragment key={id}>
+                            <ListItem
+                                key={id}
+                                button
+                                onClick={() => history.push('/assignment')}
+                            >
+                                <ListItemIcon className={classes.itemIcon}>
+                                    <WebIcon />
+                                </ListItemIcon>
+                                <ListItemText>{name}</ListItemText>
+                            </ListItem>
+                            <Divider light/>
+                        </Fragment>
                     ))}
                 </List>
             </div>

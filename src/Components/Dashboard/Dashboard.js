@@ -7,12 +7,13 @@ import {
 } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Hidden from '@material-ui/core/Hidden'
-import Sidebar from '../Layouts/Sidebar'
-import Header from '../Layouts/Header/Header'
 import Grid from '@material-ui/core/Grid'
-import MessageFinder from './SocialNav/Messenger/MessageFinder'
 import WorkNav from './WorkNav/WorkNav'
-import { Footer } from '../Layouts'
+import { Header, Footer, Sidebar } from '../Shared/Layouts'
+import AnnouncementFinder from './Announcements/AnnouncementFinder'
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 
 let theme = createMuiTheme({
     palette: {
@@ -147,14 +148,44 @@ const styles = {
         padding: theme.spacing(6, 4),
         background: '#eaeff1',
     },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
 }
 
 function Dashboard(props) {
     const { classes } = props
-    const [mobileOpen, setMobileOpen] = React.useState(false)
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen)
+    // const [creatingCourse, createCourse] = React.useState(false);
+    // const startCreatingCourse = () => {
+    //     createCourse(true);
+    // };
+    // const stopCreatingCourse = () => {
+    //     createAssignment(true);
+    // };
+    //
+    // const [creatingAssignment, createAssignment] = React.useState(false);
+    // const startCreatingAssignment = () => {
+    //     createAssignment(true);
+    // };
+    // const stopCreatingAssignment = () => {
+    //     createAssignment(true);
+    // };
+
+    const [creatingAnnouncement, createAnnouncement] = React.useState(false);
+    const startCreatingAnnouncement = () => {
+        createAnnouncement(true);
+    };
+    const stopCreatingAnnouncement = () => {
+        createAnnouncement(false);
     }
 
     return (
@@ -170,7 +201,7 @@ function Dashboard(props) {
                     </Hidden>
                 </nav>
                 <div className={classes.app}>
-                    <Header onDrawerToggle={handleDrawerToggle} />
+                    <Header/>
                     {/* Dashboard Contents */}
                     <main className={classes.main}>
                         <Grid container spacing={2}>
@@ -178,12 +209,30 @@ function Dashboard(props) {
                                 <WorkNav />
                             </Grid>
                             <Grid item lg={6} md={12} xs={12}>
-                                <MessageFinder />
+                                <AnnouncementFinder handleOpen={startCreatingAnnouncement}/>
                             </Grid>
                         </Grid>
                     </main>
                     <Footer />
                 </div>
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classes.modal}
+                    open={creatingAnnouncement}
+                    onClose={stopCreatingAnnouncement}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                >
+                    <Fade in={creatingAnnouncement}>
+                        <div className={classes.paper}>
+                            <h2 id="transition-modal-title">Create announcement form goes here</h2>
+                        </div>
+                    </Fade>
+                </Modal>
             </div>
         </ThemeProvider>
     )

@@ -15,7 +15,9 @@ import AssignmentList from './AssignmentList'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import AddIcon from '@material-ui/icons/Add';
 import 'typeface-roboto';
+import Zoom from '@material-ui/core/Zoom'
 
 const styles = theme => ({
     paper: {
@@ -39,7 +41,7 @@ const styles = theme => ({
         margin: '16px 16px',
     },
     assignmentHeader: {
-        marginTop: '3px',
+        marginTop: '4px',
     }
 })
 
@@ -96,13 +98,6 @@ function AssignmentFinder(props) {
                             />
                         </Grid>
                         <Grid item>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className={classes.addUser}
-                            >
-                                Create Assignment
-                            </Button>
                             <Tooltip title="Reload">
                                 <IconButton>
                                     <RefreshIcon
@@ -114,7 +109,7 @@ function AssignmentFinder(props) {
                         </Grid>
                     </Grid>
                 </Toolbar>
-                <Divider/>
+                <Divider light/>
                 <Grid container>
                     <Grid item xs={1} md={1} lg={1}>
                         <Button color={'default'} onClick={handleBack}>
@@ -127,11 +122,20 @@ function AssignmentFinder(props) {
                         </Typography>
                     </Grid>
                 </Grid>
-
             </AppBar>
-            <div className={classes.contentWrapper}>
-                <AssignmentList Assignments={Assignments} />
-            </div>
+            <Grid container>
+                <Grid item xs={12} md={12} lg={12} className={classes.contentWrapper}>
+                    <AssignmentList Assignments={Assignments} />
+                </Grid>
+                <Grid item xs={11} md={11} lg={11}/>
+                <Grid item xs={1} md={1} lg={1}>
+                    <Button color="primary" size={'small'} aria-label="add">
+                        <Tooltip title={'Create assignment'} placement="left" TransitionComponent={Zoom}>
+                            <AddIcon />
+                        </Tooltip>
+                    </Button>
+                </Grid>
+            </Grid>
         </Paper>
     )
 }

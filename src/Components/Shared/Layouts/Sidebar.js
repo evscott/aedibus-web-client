@@ -9,9 +9,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import PeopleIcon from '@material-ui/icons/People'
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
-import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import { Dashboard } from '@material-ui/icons'
+import AnnouncementIcon from '@material-ui/icons/Announcement';
 import { useHistory } from 'react-router-dom'
 
 export const Categories = [
@@ -30,7 +30,7 @@ export const Categories = [
     {
         id: 'Social',
         children: [
-            { id: 'Messenger', icon: <QuestionAnswerIcon />, to: '/home' },
+            { id: 'Announcements', icon: <AnnouncementIcon />, to: '/home' },
             { id: 'Students', icon: <PeopleIcon />, to: '/home' },
         ],
     },
